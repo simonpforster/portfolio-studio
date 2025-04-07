@@ -1,0 +1,7 @@
+services:
+  portfolio-manager:
+    build: .
+    platform: "linux/amd64"
+    ports:
+      - "8080:8080"
+    env_file: ".env"
