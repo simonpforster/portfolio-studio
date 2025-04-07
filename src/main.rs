@@ -96,8 +96,6 @@ async fn admin_handler(State(state): State<Arc<AppState>>, project: Query<AdminQ
     match project {
         Some(project) => {
 
-            let d = state.project_repository.get_projects().iter().map(|p| {p.project_name});
-
             let data = json!({
                 "project_name": project
             });
