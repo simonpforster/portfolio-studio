@@ -24,9 +24,9 @@ impl HelperDef for ProjectDescription {
             .and_then(|v| v.value().as_str())
             .unwrap_or("");
 
-        let description = self.project_repository.get_project(project_name).unwrap();
+        let project = self.project_repository.get_project(project_name).unwrap();
 
-        out.write(&description.description)?;
+        out.write(&project.description.unwrap_or("".into()))?;
 
         Ok(())
     }

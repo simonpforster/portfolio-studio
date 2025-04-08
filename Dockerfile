@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM rust:1.85.1-bullseye AS builder
+FROM rust:1.86.0-bullseye AS builder
 
 ADD . .
 
@@ -7,7 +7,7 @@ ENV RUSTFLAGS="-C target-cpu=haswell -C opt-level=3"
 
 RUN cargo build --release
 
-FROM rust:1.85.1-slim-bullseye AS runner
+FROM rust:1.86.0-slim-bullseye AS runner
 
 COPY --from=builder --chown=65534 /target/release/portfolio-manager /usr/local/bin
 ADD --chown=65534 /templates /templates

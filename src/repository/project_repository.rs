@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::sync::RwLock;
 use firestore::{path, FirestoreDb, FirestoreQueryDirection, FirestoreResult};
 use futures_core::stream::BoxStream;
@@ -65,10 +66,13 @@ impl ProjectRepository {
 pub struct Project {
     #[serde(rename = "projectName")]
     pub(crate) project_name: String,
+    #[serde(rename = "projectId")]
+    pub(crate) project_id: String,
     owner: String,
-    year: u16,
+    pub(crate) year: u16,
     #[serde(rename = "type")]
     project_type: String,
-    pub description: String,
-    pub tags: Vec<String>,
+    pub(crate) references: Option<HashMap<String, String>>,
+    pub(crate) description: Option<String>,
+    pub(crate) tags: Vec<String>,
 }
