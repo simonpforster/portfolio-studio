@@ -1,5 +1,5 @@
 services:
-  portfolio-manager:
+  portfolio-studio:
     build: .
     platform: "linux/amd64"
     ports:

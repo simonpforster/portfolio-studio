@@ -9,7 +9,7 @@ env:
   REGION: europe-west1
   PROJECT: listen-and-learn-411214
   REPO: prod
-  IMAGE: portfolio-manager
+  IMAGE: portfolio-studio
 
 jobs:
   docker-image-build:

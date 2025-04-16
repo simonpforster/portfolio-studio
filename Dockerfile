@@ -9,7 +9,7 @@ RUN cargo build --release
 
 FROM rust:1.86.0-slim-bullseye AS runner
 
-COPY --from=builder --chown=65534 /target/release/portfolio-manager /usr/local/bin
+COPY --from=builder --chown=65534 /target/release/portfolio-studio /usr/local/bin
 ADD --chown=65534 /templates /templates
 ADD --chown=65534 /static /static
 
@@ -21,4 +21,4 @@ EXPOSE $PORT
 
 USER 65534
 
-CMD ["/usr/local/bin/portfolio-manager"]
+CMD ["/usr/local/bin/portfolio-studio"]
